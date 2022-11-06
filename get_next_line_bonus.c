@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obahi <obahi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 18:50:54 by obahi             #+#    #+#             */
-/*   Updated: 2022/11/06 13:14:36 by obahi            ###   ########.fr       */
+/*   Created: 2022/11/06 15:37:46 by obahi             #+#    #+#             */
+/*   Updated: 2022/11/06 21:50:29 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"get_next_line.h"
+#include"get_next_line_bonus.h"
 
 static void	ft_free(char **p)
 {
@@ -71,7 +71,7 @@ static char	*ft_keep_reading(char **line, char **buffer, char **remain)
 
 char	*get_next_line(int fd)
 {
-	static char	*remain;
+	static char	*remain[OPEN_MAX];
 	char		*buffer;
 	int			count;
 	char		*line;
@@ -81,7 +81,7 @@ char	*get_next_line(int fd)
 	buffer = 0;
 	if (fd < 0 && BUFFER_SIZE <= 0)
 		return (0);
-	n = ft_check_remain(&line, &remain);
+	n = ft_check_remain(&line, &remain[fd]);
 	while (n == 0)
 	{
 		buffer = (char *)ft_calloc(BUFFER_SIZE + 1, 1);
@@ -90,7 +90,7 @@ char	*get_next_line(int fd)
 		count = read(fd, buffer, BUFFER_SIZE);
 		if (count > 0)
 		{
-			n = ft_keep_reading(&line, &buffer, &remain);
+			n = ft_keep_reading(&line, &buffer, &remain[fd]);
 		}
 		else
 			return (ft_free(&buffer), line);
