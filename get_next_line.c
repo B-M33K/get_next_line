@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obahi <obahi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: meek <meek@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:50:54 by obahi             #+#    #+#             */
-/*   Updated: 2022/11/06 13:14:36 by obahi            ###   ########.fr       */
+/*   Updated: 2022/11/09 19:35:48 by meek             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char	*get_next_line(int fd)
 
 	line = 0;
 	buffer = 0;
-	if (fd < 0 && BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	n = ft_check_remain(&line, &remain);
 	while (n == 0)
