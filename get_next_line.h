@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: obahi <obahi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 18:51:35 by obahi             #+#    #+#             */
-/*   Updated: 2022/11/06 15:43:08 by obahi            ###   ########.fr       */
+/*   Created: 2022/11/15 19:28:18 by obahi             #+#    #+#             */
+/*   Updated: 2022/11/17 10:54:11 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 # include <string.h>
 
 char	*get_next_line(int fd);
+void	ft_free(char **p);
 char	*ft_strdup(char *src);
 int		ft_strlen_c(char *str, char c);
-void	*ft_calloc(size_t count, size_t size);
 char	*ft_strjoin_c(char *s1, char *s2, char c);
 char	*ft_strchr(char *str, char c);
 

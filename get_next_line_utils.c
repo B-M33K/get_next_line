@@ -5,12 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: obahi <obahi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 19:43:42 by obahi             #+#    #+#             */
-/*   Updated: 2022/11/06 11:33:31 by obahi            ###   ########.fr       */
+/*   Created: 2022/11/15 19:27:57 by obahi             #+#    #+#             */
+/*   Updated: 2022/11/17 10:54:18 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	ft_free(char **p)
+{
+	if (*p)
+	{
+		free(*p);
+		*p = 0;
+	}
+}
 
 int	ft_strlen_c(char *str, char c)
 {
@@ -20,27 +29,6 @@ int	ft_strlen_c(char *str, char c)
 	while (*ptr && *ptr != c)
 		ptr++;
 	return (ptr - str);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	char			*ptr;
-	unsigned int	n;
-	unsigned int	i;
-
-	ptr = 0;
-	i = 0;
-	n = count * size;
-	ptr = malloc(n);
-	if (ptr)
-	{
-		while (i < n)
-		{
-			*(ptr + i) = 0;
-			i++;
-		}
-	}
-	return ((void *)ptr);
 }
 
 char	*ft_strdup(char *src)
