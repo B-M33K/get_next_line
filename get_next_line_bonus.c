@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: obahi <obahi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 19:27:13 by obahi             #+#    #+#             */
-/*   Updated: 2022/11/17 10:54:27 by obahi            ###   ########.fr       */
+/*   Created: 2022/11/23 18:15:15 by obahi             #+#    #+#             */
+/*   Updated: 2022/11/23 18:21:42 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	*get_next_line(int fd)
 	char		*n;
 
 	line = 0;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, buffer, 0) < 0)
 	{
 		ft_free(&remain[fd]);
 		return (0);
