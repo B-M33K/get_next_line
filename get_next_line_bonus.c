@@ -59,7 +59,7 @@ static char	*ft_keep_reading(char **line, char *buffer, char **remain)
 	return (n);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line_bonus(int fd)
 {
 	static char	*remain[OPEN_MAX];
 	char		buffer[BUFFER_SIZE + 1];
